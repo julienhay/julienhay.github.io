@@ -1,9 +1,13 @@
-<aside class="w-64 bg-blue-100 p-4">
+<aside id="sidebar" class="fixed md:static inset-y-0 left-0 w-64 bg-sky-100 p-4 transform -translate-x-full md:translate-x-0 transition-transform md:block z-20">
     <nav class="space-y-2 text-gray-700">
-        <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-blue-200"><i class="fa-solid fa-house"></i> Accueil</a>
-        <a href="{{ '/admin.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-blue-200"><i class="fa-solid fa-chart-line"></i> Tableau de bord</a>
-        <a href="{{ '/employes.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-blue-200"><i class="fa-solid fa-users"></i> Employés</a>
-        <a href="{{ '/departements.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-blue-200"><i class="fa-solid fa-building"></i> Départements</a>
-        <a href="{{ '/conges.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-blue-200"><i class="fa-solid fa-calendar-days"></i> Congés</a>
+        <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-sky-200"><i class="fa-solid fa-house"></i> Accueil</a>
+        <a href="{{ '/architecture.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-sky-200"><i class="fa-solid fa-diagram-project"></i> Architecture</a>
+        <a href="{{ '/frontend.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-sky-200"><i class="fa-solid fa-desktop"></i> Interface</a>
+        <a href="{{ '/securite.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-sky-200"><i class="fa-solid fa-shield-halved"></i> Sécurité</a>
+        <a href="{{ '/ci-cd.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-sky-200"><i class="fa-solid fa-rocket"></i> Déploiement</a>
+        <a href="{{ '/regles.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-sky-200"><i class="fa-solid fa-list-check"></i> Règles</a>
+        <a href="{{ '/observabilite.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-sky-200"><i class="fa-solid fa-chart-bar"></i> Observabilité</a>
+        <a href="{{ '/cout.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-sky-200"><i class="fa-solid fa-euro-sign"></i> Coût</a>
+        <a href="{{ '/roadmap.html' | relative_url }}" class="flex items-center gap-2 py-2 px-3 rounded hover:bg-sky-200"><i class="fa-solid fa-road"></i> Roadmap</a>
     </nav>
 </aside>
