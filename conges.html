@@ -1,50 +1,32 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion des congés</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-blue-50 min-h-screen">
-    <header class="bg-blue-700 text-white p-4">
-        <h1 class="text-2xl font-bold">SIRH - Congés</h1>
-        <nav class="mt-2 space-x-4">
-            <a href="index.html" class="underline">Accueil</a>
-            <a href="admin.html" class="underline">Tableau de bord</a>
-            <a href="employes.html" class="underline">Employés</a>
-            <a href="departements.html" class="underline">Départements</a>
-        </nav>
-    </header>
+---
+layout: default
+title: Congés
+---
 
-    <main class="p-6">
-        <div class="bg-white shadow rounded p-4">
-            <h2 class="text-xl font-semibold text-blue-700 mb-4">Historique des demandes de congés</h2>
-            <table class="min-w-full text-left text-sm">
-                <thead>
-                    <tr class="border-b">
-                        <th class="p-2">Employé</th>
-                        <th class="p-2">Du</th>
-                        <th class="p-2">Au</th>
-                        <th class="p-2">Statut</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-b hover:bg-blue-100">
-                        <td class="p-2">Martin Dupont</td>
-                        <td class="p-2">01/05/2023</td>
-                        <td class="p-2">10/05/2023</td>
-                        <td class="p-2">Validé</td>
-                    </tr>
-                    <tr class="border-b hover:bg-blue-100">
-                        <td class="p-2">Sophie Durand</td>
-                        <td class="p-2">15/07/2023</td>
-                        <td class="p-2">20/07/2023</td>
-                        <td class="p-2">En attente</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </main>
-</body>
-</html>
+<div class="bg-white shadow rounded p-4">
+    <h2 class="text-xl font-semibold text-blue-700 mb-4">Historique des demandes de congés</h2>
+    <table class="min-w-full text-left text-sm">
+        <thead>
+            <tr class="border-b">
+                <th class="p-2">Employé</th>
+                <th class="p-2">Du</th>
+                <th class="p-2">Au</th>
+                <th class="p-2">Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="border-b hover:bg-blue-100">
+                <td class="p-2">Martin Dupont</td>
+                <td class="p-2">01/05/2023</td>
+                <td class="p-2">10/05/2023</td>
+                <td class="p-2">Validé</td>
+            </tr>
+            <tr class="border-b hover:bg-blue-100">
+                <td class="p-2">Sophie Durand</td>
+                <td class="p-2">15/07/2023</td>
+                <td class="p-2">20/07/2023</td>
+                <td class="p-2">En attente</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
