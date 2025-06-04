@@ -7,13 +7,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-blue-50 min-h-screen flex flex-col">
+<body class="bg-sky-50 min-h-screen flex flex-col">
     {% include header.html %}
     <div class="flex flex-1">
         {% include sidebar.html %}
-        <main class="flex-1 p-6">
+        <main id="content" class="flex-1 p-6 md:ml-64 transition-all">
             {{ content }}
         </main>
     </div>
+    <script>
+        const btn = document.getElementById('menu-toggle');
+        if (btn) {
+            btn.addEventListener('click', () => {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('-translate-x-full');
+            });
+        }
+    </script>
 </body>
 </html>
