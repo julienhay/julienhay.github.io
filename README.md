@@ -1,13 +1,16 @@
 julienhay.github.io
 ===================
 
-Demo website with a small HR administration (SIRH) simulation.
-This site now uses [Jekyll](https://jekyllrb.com/) for layout management so all
-pages share a common navigation menu.
+Site DELAIGUE Developer guide.
+Page expliquant les règles de développement du style DELAIGUE.
 
-Available pages:
-- `index.html` : accueil
-- `admin.html` : tableau de bord
-- `employes.html` : gestion des employés
-- `departements.html` : liste des départements
-- `conges.html` : gestion des congés
+Utilise Jekyll pour la gestion du layout.
+Utilise Tailwind CSS pour le style.
+Utilise Font Awesome pour les icônes.
+Utilise JavaScript pour la logique.
+Utilise HTML pour le contenu.
+Utilise Jekyll pour la gestion du layout.
+Utilise Tailwind CSS pour le style.
+Utilise Font Awesome pour les icônes.
+Utilise JavaScript pour la logique.
+Utilise HTML pour le contenu.
