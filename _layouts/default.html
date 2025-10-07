@@ -1017,8 +1017,8 @@
 
         function resetQuiz() {
           quiz.hidden = true;
-          questions.forEach((question, index) => {
-            question.hidden = index !== 0;
+          questions.forEach((question) => {
+            question.hidden = true;
           });
           if (guidelinesContent) {
             guidelinesContent.hidden = false;
@@ -1027,7 +1027,7 @@
             launchWrapper.hidden = false;
           }
           hideSuccess();
-          currentIndex = 0;
+          currentIndex = -1;
         }
 
         launchLink.addEventListener('click', (event) => {
