@@ -258,6 +258,181 @@
       text-align: center;
     }
 
+    .matrix-guidelines-content[hidden] {
+      display: none;
+    }
+
+    .guidelines-cta {
+      margin-top: 2.4rem;
+      text-align: center;
+    }
+
+    .guidelines-cta[hidden] {
+      display: none;
+    }
+
+    .matrix-quiz-launch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.8rem;
+      border: 1px solid rgba(11, 253, 140, 0.6);
+      border-radius: 999px;
+      color: #0bfd8c;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: rgba(11, 253, 140, 0.08);
+      box-shadow: 0 0 16px rgba(11, 253, 140, 0.25);
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .matrix-quiz-launch:hover,
+    .matrix-quiz-launch:focus {
+      background: rgba(11, 253, 140, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 0 24px rgba(11, 253, 140, 0.45);
+    }
+
+    .matrix-quiz {
+      margin-top: 2.5rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid rgba(11, 253, 140, 0.28);
+      display: grid;
+      gap: 1.7rem;
+    }
+
+    .matrix-quiz-question h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #0bfd8c;
+      text-shadow: 0 0 10px rgba(11, 253, 140, 0.4);
+    }
+
+    .matrix-quiz-options {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .matrix-quiz-option {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 1px solid rgba(11, 253, 140, 0.4);
+      border-radius: 14px;
+      background: rgba(4, 30, 19, 0.7);
+      color: rgba(176, 255, 227, 0.9);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .matrix-quiz-option:hover,
+    .matrix-quiz-option:focus {
+      transform: translateX(6px);
+      border-color: rgba(11, 253, 140, 0.7);
+      box-shadow: 0 0 18px rgba(11, 253, 140, 0.4);
+      outline: none;
+    }
+
+    .matrix-quiz-hint {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: rgba(176, 255, 227, 0.7);
+      font-style: italic;
+    }
+
+    .matrix-quiz-success {
+      text-align: center;
+      display: grid;
+      gap: 1.1rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .matrix-quiz-success.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .matrix-quiz-success h3 {
+      font-size: 1.4rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #0bfd8c;
+    }
+
+    .matrix-quiz-rain {
+      position: relative;
+      height: 140px;
+      border-radius: 14px;
+      border: 1px solid rgba(11, 253, 140, 0.4);
+      background: rgba(4, 30, 19, 0.6);
+      overflow: hidden;
+      box-shadow: 0 0 24px rgba(11, 253, 140, 0.35);
+    }
+
+    .matrix-quiz-rain::before,
+    .matrix-quiz-rain::after {
+      content: "";
+      position: absolute;
+      inset: -150% 0;
+      background: repeating-linear-gradient(
+        transparent 0,
+        rgba(11, 253, 140, 0.05) 12%,
+        rgba(11, 253, 140, 0.45) 16%,
+        transparent 22%
+      );
+      animation: matrix-rain 2.1s linear infinite;
+      opacity: 0.85;
+    }
+
+    .matrix-quiz-rain::after {
+      animation-duration: 1.6s;
+      animation-delay: -0.6s;
+      mix-blend-mode: screen;
+    }
+
+    @keyframes matrix-rain {
+      0% {
+        transform: translateY(-5%);
+      }
+      100% {
+        transform: translateY(105%);
+      }
+    }
+
+    .matrix-quiz-congrats {
+      font-size: 1rem;
+      color: rgba(176, 255, 227, 0.85);
+      letter-spacing: 0.08em;
+    }
+
+    .matrix-quiz-restart {
+      justify-self: center;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid rgba(11, 253, 140, 0.5);
+      border-radius: 28px;
+      background: transparent;
+      color: rgba(176, 255, 227, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .matrix-quiz-restart:hover,
+    .matrix-quiz-restart:focus {
+      background: rgba(11, 253, 140, 0.18);
+      color: #0bfd8c;
+      outline: none;
+    }
+
     .matrix-surprise-shell {
       position: relative;
       width: min(900px, 92vw);
@@ -518,15 +693,55 @@
     <div class="matrix-modal matrix-guidelines">
       <button class="matrix-modal-close" type="button" data-matrix-dismiss aria-label="Fermer">&times;</button>
       <h2><span>Devenir DELAIGUE</span></h2>
-      <p class="guidelines-intro">Pour rejoindre la légion verte, suis ces préceptes sacrés. Chaque commit est une prière, chaque review une offrande au grand DELAIGUE.</p>
-      <ul class="guidelines-list">
-        <li>Le code de qualité tu produiras.</li>
-        <li>Des IDE modernes tu utiliseras.</li>
-        <li>De la belle code review tu feras.</li>
-        <li>Les builds rouges tu feras verdir.</li>
-        <li>La sagesse verte de DELAIGUE tu transmettras.</li>
-      </ul>
-      <p class="guidelines-quote">« Follow the green, partage les commits. Nous sommes DELAIGUE. »</p>
+      <div class="matrix-guidelines-content" data-quiz-guidelines>
+        <p class="guidelines-intro">Pour rejoindre la légion verte, suis ces préceptes sacrés. Chaque commit est une prière, chaque review une offrande au grand DELAIGUE.</p>
+        <ul class="guidelines-list">
+          <li>Le code de qualité tu produiras.</li>
+          <li>Des IDE modernes tu utiliseras.</li>
+          <li>De la belle code review tu feras.</li>
+          <li>Les builds rouges tu feras verdir.</li>
+          <li>La sagesse verte de DELAIGUE tu transmettras.</li>
+        </ul>
+        <p class="guidelines-quote">« Follow the green, partage les commits. Nous sommes DELAIGUE. »</p>
+      </div>
+      <p class="guidelines-cta" data-quiz-launch-wrapper>
+        <a href="#" class="matrix-quiz-launch" data-quiz-launch>Passer le quiz d'éligibilité</a>
+      </p>
+      <div class="matrix-quiz" data-quiz hidden>
+        <div class="matrix-quiz-question" data-quiz-question="0">
+          <h3>Question 1 · Qui est DELAIGUE&nbsp;?</h3>
+          <div class="matrix-quiz-options">
+            <button type="button" class="matrix-quiz-option" data-quiz-option>Un développeur</button>
+            <button type="button" class="matrix-quiz-option" data-quiz-option>Un dave</button>
+            <button type="button" class="matrix-quiz-option" data-quiz-option>Un dev&nbsp;?</button>
+          </div>
+          <p class="matrix-quiz-hint">Spoiler&nbsp;: toute réponse mène au vert.</p>
+        </div>
+        <div class="matrix-quiz-question" data-quiz-question="1" hidden>
+          <h3>Question 2 · Comment saluer un autre DELAIGUE&nbsp;?</h3>
+          <div class="matrix-quiz-options">
+            <button type="button" class="matrix-quiz-option" data-quiz-option>En levant sa tasse verte</button>
+            <button type="button" class="matrix-quiz-option" data-quiz-option>En commitant un merci</button>
+            <button type="button" class="matrix-quiz-option" data-quiz-option>En murmurant «&nbsp;merge&nbsp;»</button>
+          </div>
+          <p class="matrix-quiz-hint">Peu importe, l'aura verte validera.</p>
+        </div>
+        <div class="matrix-quiz-question" data-quiz-question="2" hidden>
+          <h3>Question 3 · Que faire si un build rougit&nbsp;?</h3>
+          <div class="matrix-quiz-options">
+            <button type="button" class="matrix-quiz-option" data-quiz-option>Appeler DELAIGUE</button>
+            <button type="button" class="matrix-quiz-option" data-quiz-option>Relancer jusqu'à ce que ce soit vert</button>
+            <button type="button" class="matrix-quiz-option" data-quiz-option>Danser la compile verte</button>
+          </div>
+          <p class="matrix-quiz-hint">Tous les chemins mènent à la matrice.</p>
+        </div>
+        <div class="matrix-quiz-success" data-quiz-success hidden>
+          <h3>BRAVO, tu es éligible&nbsp;!</h3>
+          <div class="matrix-quiz-rain" aria-hidden="true"></div>
+          <p class="matrix-quiz-congrats">La matrice t'accueille&nbsp;: ta légende est déjà en train de se commit.</p>
+          <button type="button" class="matrix-quiz-restart" data-quiz-restart>Revenir aux préceptes</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -713,6 +928,9 @@
         if (modal.dataset.matrixModalId === 'surprise') {
           resetSurpriseSequence(modal);
         }
+        if (modal.dataset.matrixModalId === 'devenir') {
+          modal.dispatchEvent(new CustomEvent('matrix:reset'));
+        }
 
         if (modal === activeModal) {
           activeModal = null;
@@ -742,6 +960,104 @@
 
         shell.classList.remove('sequence-start', 'sequence-complete');
       }
+
+      function setupDevenirQuiz() {
+        const devenirModal = getModalById('devenir');
+        if (!devenirModal) return;
+
+        const guidelinesContent = devenirModal.querySelector('[data-quiz-guidelines]');
+        const launchWrapper = devenirModal.querySelector('[data-quiz-launch-wrapper]');
+        const launchLink = devenirModal.querySelector('[data-quiz-launch]');
+        const quiz = devenirModal.querySelector('[data-quiz]');
+        if (!quiz || !launchLink) return;
+
+        const questions = quiz.querySelectorAll('[data-quiz-question]');
+        const success = quiz.querySelector('[data-quiz-success]');
+        const restart = quiz.querySelector('[data-quiz-restart]');
+        const options = quiz.querySelectorAll('[data-quiz-option]');
+        let currentIndex = 0;
+
+        function hideSuccess() {
+          if (!success) return;
+          success.hidden = true;
+          success.classList.remove('is-visible');
+        }
+
+        function goToQuestion(index) {
+          questions.forEach((question, i) => {
+            question.hidden = i !== index;
+          });
+          currentIndex = index;
+          hideSuccess();
+        }
+
+        function startQuiz() {
+          if (guidelinesContent) {
+            guidelinesContent.hidden = true;
+          }
+          if (launchWrapper) {
+            launchWrapper.hidden = true;
+          }
+          quiz.hidden = false;
+          goToQuestion(0);
+        }
+
+        function completeQuiz() {
+          questions.forEach((question) => {
+            question.hidden = true;
+          });
+          currentIndex = questions.length;
+          if (success) {
+            success.hidden = false;
+            requestAnimationFrame(() => {
+              success.classList.add('is-visible');
+            });
+          }
+        }
+
+        function resetQuiz() {
+          quiz.hidden = true;
+          questions.forEach((question, index) => {
+            question.hidden = index !== 0;
+          });
+          if (guidelinesContent) {
+            guidelinesContent.hidden = false;
+          }
+          if (launchWrapper) {
+            launchWrapper.hidden = false;
+          }
+          hideSuccess();
+          currentIndex = 0;
+        }
+
+        launchLink.addEventListener('click', (event) => {
+          event.preventDefault();
+          startQuiz();
+        });
+
+        options.forEach((option) => {
+          option.addEventListener('click', () => {
+            if (currentIndex >= questions.length - 1) {
+              completeQuiz();
+            } else {
+              goToQuestion(currentIndex + 1);
+            }
+          });
+        });
+
+        if (restart) {
+          restart.addEventListener('click', () => {
+            resetQuiz();
+            launchLink.focus({ preventScroll: true });
+          });
+        }
+
+        devenirModal.addEventListener('matrix:reset', resetQuiz);
+
+        resetQuiz();
+      }
+
+      setupDevenirQuiz();
 
       modalTriggers.forEach((trigger) => {
         trigger.addEventListener('click', (event) => {
