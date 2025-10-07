@@ -152,7 +152,11 @@
       transform: scale(0.92) translateY(12px);
       opacity: 0;
       transition: transform 0.35s ease, opacity 0.35s ease;
-      overflow: hidden;
+      max-height: min(88vh, 720px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
     }
 
     .matrix-modal-backdrop.open .matrix-modal {
@@ -214,6 +218,10 @@
     .matrix-modal h2 span {
       display: inline-block;
       animation: matrix-glitch 3s linear infinite;
+    }
+
+    .matrix-modal [hidden] {
+      display: none !important;
     }
 
     .matrix-guidelines {
@@ -438,11 +446,12 @@
       width: min(900px, 92vw);
       height: min(90vh, 640px);
       padding: 0;
-      background: rgba(1, 16, 10, 0.88);
+      background: rgba(1, 16, 10, 0.95);
       border-radius: 22px;
       border: 1px solid rgba(11, 253, 140, 0.45);
       box-shadow: 0 0 42px rgba(11, 253, 140, 0.45);
       overflow: hidden;
+      z-index: 20;
     }
 
     .matrix-surprise-shell .matrix-modal-close {
