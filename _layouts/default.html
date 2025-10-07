@@ -25,6 +25,10 @@
       position: relative;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     canvas#matrix {
       position: fixed;
       inset: 0;
@@ -115,6 +119,103 @@
       margin-top: 1rem;
     }
 
+    .matrix-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.88);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      z-index: 10;
+      padding: 2rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .matrix-modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .matrix-modal {
+      position: relative;
+      width: min(640px, 100%);
+      padding: 2.5rem 2.25rem 2rem;
+      background: rgba(4, 30, 19, 0.85);
+      border: 1px solid rgba(11, 253, 140, 0.55);
+      border-radius: 18px;
+      box-shadow: 0 0 32px rgba(11, 253, 140, 0.4);
+      color: rgba(176, 255, 227, 0.9);
+      text-align: left;
+      transform: scale(0.92) translateY(12px);
+      opacity: 0;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      overflow: hidden;
+    }
+
+    .matrix-modal-backdrop.open .matrix-modal {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    .matrix-modal::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(11, 253, 140, 0.22);
+      border-radius: inherit;
+      pointer-events: none;
+      box-shadow: inset 0 0 22px rgba(11, 253, 140, 0.2);
+    }
+
+    .matrix-modal h2 {
+      font-size: clamp(1.8rem, 1.2vw + 1.1rem, 2.4rem);
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #0bfd8c;
+      text-shadow: 0 0 12px rgba(11, 253, 140, 0.5);
+    }
+
+    .matrix-modal p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .matrix-modal-close {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: none;
+      border: none;
+      color: rgba(176, 255, 227, 0.8);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .matrix-modal-close:hover,
+    .matrix-modal-close:focus {
+      color: #0bfd8c;
+      transform: scale(1.1);
+    }
+
+    @keyframes matrix-glitch {
+      0%, 100% {
+        filter: hue-rotate(0deg);
+      }
+      50% {
+        filter: hue-rotate(30deg);
+      }
+    }
+
+    .matrix-modal h2 span {
+      display: inline-block;
+      animation: matrix-glitch 3s linear infinite;
+    }
+
     @media (max-width: 640px) {
       .link-group {
         gap: 1rem;
@@ -146,7 +247,10 @@
     {% if nav_links and nav_links != empty %}
       <nav class="link-group" aria-label="Navigation principale">
         {% for link in nav_links %}
-          <a href="{{ link.url }}">{{ link.label }}</a>
+          <a
+            href="{{ link.url | default: '#' }}"
+            {% if link.modal %}data-matrix-modal="{{ link.modal }}"{% endif %}
+          >{{ link.label }}</a>
         {% endfor %}
       </nav>
     {% endif %}
@@ -156,6 +260,16 @@
         {{ content }}
       </div>
     {% endif %}
+  </div>
+
+  <div id="matrix-modal" class="matrix-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="matrix-modal">
+      <button class="matrix-modal-close" type="button" data-matrix-dismiss aria-label="Fermer">&times;</button>
+      <h2><span>Pourquoi DELAIGUE ?</span></h2>
+      <p>Nous sommes tous DELAIGUE car c'est notre guide, le meilleur guide développeur au monde. Sa lumière verte éclaire nos commits, même ceux du vendredi soir.</p>
+      <p>Certains rêvent en ASCII art, d'autres en JSON. Nous, on rêve en DELAIGUE : des classes bien nommées, des tests verts et un humour qui ne tombe jamais en panne.</p>
+      <p>Alors suivez la ligne verte, prenez la pilule `npm install delaigue` et chantons ensemble le `git push origin main` de la destinée.</p>
+    </div>
   </div>
 
   <script>
@@ -227,6 +341,57 @@
       if (phrases.length > 1) {
         setInterval(cycle, delay);
       }
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const body = document.body;
+      const modalBackdrop = document.getElementById('matrix-modal');
+      if (!modalBackdrop) return;
+
+      const closeButton = modalBackdrop.querySelector('[data-matrix-dismiss]');
+      const modalTriggers = document.querySelectorAll('[data-matrix-modal]');
+
+      function openModal() {
+        modalBackdrop.classList.add('open');
+        modalBackdrop.setAttribute('aria-hidden', 'false');
+        body.classList.add('modal-open');
+        if (closeButton) {
+          closeButton.focus({ preventScroll: true });
+        }
+      }
+
+      function closeModal() {
+        modalBackdrop.classList.remove('open');
+        modalBackdrop.setAttribute('aria-hidden', 'true');
+        body.classList.remove('modal-open');
+      }
+
+      modalTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', (event) => {
+          if (trigger.dataset.matrixModal) {
+            event.preventDefault();
+            openModal();
+          }
+        });
+      });
+
+      if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+      }
+
+      modalBackdrop.addEventListener('click', (event) => {
+        if (event.target === modalBackdrop) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modalBackdrop.classList.contains('open')) {
+          closeModal();
+        }
+      });
     })();
   </script>
 </body>
