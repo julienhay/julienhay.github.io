@@ -1,37 +1,18 @@
 ---
 layout: default
-title: Accueil
+title: DELAIGUE
+title_variants:
+  - "we are DELAIGUE"
+  - "nous sommes DELAIGUE"
+  - "wir sind DELAIGUE"
+  - "somos DELAIGUE"
+  - "siamo DELAIGUE"
+subtitle: "Entrez dans la matrice DELAIGUE et suivez le flux du vert."
+links:
+  - label: "Accéder"
+    url: "#access"
+  - label: "Projets"
+    url: "#projects"
+  - label: "Contact"
+    url: "mailto:contact@delaigue.com"
 ---
-
-<h1 class="text-2xl font-bold mb-4">{{ page.title }}</h1>
-<p class="mb-4">Dominique IA analyse automatiquement vos merge requests GitLab pour vous faire gagner du temps.</p>
-<p class="mb-6 italic">Laissez l\'assistant prendre en charge la revue&nbsp;!</p>
-<ul class="list-disc pl-6 mb-6 space-y-1">
-  <li>Analyse automatique des changements</li>
-  <li>Revue générée par LLM</li>
-  <li>Intégration transparente avec GitLab</li>
-  <li>Interface intuitive</li>
-</ul>
-<a href="architecture.html" class="text-sky-700 underline">Voir l\'architecture du projet</a>
-<div class='my-8'>
-  <div class='flex justify-between text-3xl font-bold mb-8'>
-    <div id='benefit-left' class='w-1/2'>DOMINIQUE IA optimise vos revues</div>
-    <div id='benefit-right' class='w-1/2 text-right'>Gagnez un temps précieux</div>
-  </div>
-  <div class='text-center'>
-    <button id='cta-btn' class='bg-sky-600 text-white px-6 py-2 rounded shadow-lg'>
-      Essayez DOMINIQUE IA
-    </button>
-  </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    gsap.from('h1', { y: -50, opacity: 0, duration: 1, ease: 'bounce.out' });
-    gsap.from('ul li', { y: 30, opacity: 0, duration: 0.6, stagger: 0.15, delay: 0.4, ease: 'back.out(1.7)' });
-    gsap.from('#benefit-left', { x: -300, opacity: 0, duration: 1, delay: 0.8, ease: 'power2.out' });
-    gsap.from('#benefit-right', { x: 300, opacity: 0, duration: 1, delay: 1, ease: 'power2.out' });
-    gsap.from('#cta-btn', { y: 50, scale: 0, opacity: 0, duration: 1, delay: 1.2, ease: 'bounce.out' });
-  });
-</script>
